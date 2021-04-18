@@ -1,14 +1,11 @@
 /**
  * FMI VR/AR/XR Library
- * 2020-08-05
- * v 0.007
+ * 2020-05-21
+ * v 0.004
  *
  * vaxInit()	инициализира на моно режим и поддържа
  *				анимационен цикъл с animate() -- проверява
  *				за наличието на Physijs
- *
- * vaxInitAnaglyph() инициализира на анаглифен режим и поддържа
- *				анимационен цикъл с animate()
  *
  * animate()	потребителска функция, която генерира нов
  *				кадър; извиква се автоматично
@@ -26,7 +23,7 @@
  * 
  */
 
-var renderer, scene, camera, light, stats, clock, t, dT, animate, perspective = true;
+var renderer, scene, camera, light, stats, clock, t, animate;
 
 function vaxInit()
 {
@@ -41,18 +38,15 @@ function vaxInit()
 	stats = new Stats();
 	document.body.appendChild( stats.dom );
 
-	if( typeof Physijs !== 'undefined' )
+	if( Physijs )
 		scene = new Physijs.Scene();
 	else
 		scene = new THREE.Scene();
 	scene.background = new THREE.Color('white');
 
 	clock = new THREE.Clock(true);
-
-	if(	perspective )
-		camera = new THREE.PerspectiveCamera( 60, 1, 1, 1000 );
-	else
-		camera = new THREE.OrthographicCamera( -window.innerWidth/2, window.innerWidth/2, window.innerHeight/2, -window.innerHeight/2, 1, 1000 );
+	
+	camera = new THREE.PerspectiveCamera( 60, 1, 1, 1000 );
 	camera.position.set(0,0,100);
 	camera.lookAt(new THREE.Vector3(0,0,0));
 	
@@ -66,67 +60,16 @@ function vaxInit()
 	renderer.setAnimationLoop( frame );
 }
 
-function vaxInitAnaglyph()
-{
-	if ( !THREE.WEBGL.isWebGLAvailable() )
-		alert( THREE.WEBGL.getWebGLErrorMessage() );
-	
-	renderer = new THREE.WebGLRenderer( {antialias:true} );
-	document.body.appendChild( renderer.domElement );
-	document.body.style.margin = 0;
-	document.body.style.overflow = 'hidden';
-	
-	stats = new Stats();
-	document.body.appendChild( stats.dom );
-
-	if( typeof Physijs !== 'undefined' )
-		scene = new Physijs.Scene();
-	else
-		scene = new THREE.Scene();
-	scene.background = new THREE.Color('white');
-	renderer.setClearColor( new THREE.Color('red') );
-
-	clock = new THREE.Clock(true);
-
-	camera = new THREE.PerspectiveCamera( 60, 1, 1, 10000 );
-	camera.focalLength = 30;
-				
-	camera.position.set(0,0,100);
-	camera.lookAt(new THREE.Vector3(0,0,0));
-	
-	light = new THREE.PointLight();
-	light.position.set(0,150,300);
-	scene.add( light );
-
-	effect = new THREE.AnaglyphEffect( renderer );
-	effect.setSize( window.innerWidth, window.innerHeight );
-				
-				
-	window.addEventListener( 'resize', onWindowResizeAnaglyph, false );
-	onWindowResizeAnaglyph();
-	
-	renderer.setAnimationLoop( frameAnaglyph );
-}
-
 function onWindowResize( event )
 {
-	if(	perspective ) camera.aspect = window.innerWidth/window.innerHeight;
+	camera.aspect = window.innerWidth/window.innerHeight;
 	camera.updateProjectionMatrix();
 
 	renderer.setSize( window.innerWidth, window.innerHeight, true );
 }			
 
-function onWindowResizeAnaglyph( event )
-{
-	camera.aspect = window.innerWidth/window.innerHeight;
-	camera.updateProjectionMatrix();
-
-	effect.setSize( window.innerWidth, window.innerHeight, true );
-}			
-
 function frame( )
 {
-	dT = clock.getDelta();
 	t = clock.getElapsedTime();
 
 	if (animate) animate();
@@ -134,18 +77,6 @@ function frame( )
 	stats.update();
 	
 	renderer.render( scene, camera );
-}
-
-function frameAnaglyph( )
-{
-	dT = clock.getDelta();
-	t = clock.getElapsedTime();
-
-	if (animate) animate();
-	
-	stats.update();
-	
-	effect.render( scene, camera );
 }
 
 function pillar(center, material)
