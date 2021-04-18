@@ -58,6 +58,11 @@
 				ground1.receiveShadow = true;
 				ground1.rotation.set (0, 0, Math.PI/2);
 			scene.add(ground1);
+			var ground1 = new Physijs.BoxMesh( geometry, material, 0 );
+				ground1.position.set( 56, 36, 0 );
+				ground1.receiveShadow = true;
+				ground1.rotation.set (Math.PI/2, 0, Math.PI/2);
+			scene.add(ground1);
 			// кубчета
 			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 ),
 				material = Physijs.createMaterial( new THREE.MeshPhongMaterial({color:'hotpink'}), 1, 0 );
