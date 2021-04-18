@@ -47,19 +47,17 @@
 			
 				
 			// земя
-			var box = new THREE.Group();
-			scene.add( box );
 			var geometry = new THREE.BoxBufferGeometry( 100, 4, 100 ),
 				material = Physijs.createMaterial( new THREE.MeshPhongMaterial({color:'lightgreen'}), 1, 0 );
 			var ground = new Physijs.BoxMesh( geometry, material, 0 );
 				ground.position.set( 0, -10, 0 );
 				ground.receiveShadow = true;
-			box.add( ground );
+			scene.add( ground );
 			var ground1 = new Physijs.BoxMesh( geometry, material, 0 );
 				ground.position.set( 110, 0, 0 );
 				ground.receiveShadow = true;
-				ground.rotation.set.y = 120;
-			box.add(ground1);
+				ground.rotation.set.z = 120;
+			scene.add(ground1);
 			// кубчета
 			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 ),
 				material = Physijs.createMaterial( new THREE.MeshPhongMaterial({color:'hotpink'}), 1, 0 );
