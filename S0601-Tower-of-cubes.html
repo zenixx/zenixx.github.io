@@ -41,6 +41,7 @@
 			var ground = new Physijs.BoxMesh( geometry, material, 0 );
 				ground.position.set( 0, -10, 0 );
 				ground.receiveShadow = true;
+				ground.rotation.x = 40;
 			scene.add( ground );
 			
 			// кубчета
