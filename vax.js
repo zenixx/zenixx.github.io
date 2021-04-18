@@ -1,7 +1,7 @@
 /**
  * FMI VR/AR/XR Library
- * 2020-05-21
- * v 0.004
+ * 2020-05-25
+ * v 0.005
  *
  * vaxInit()	инициализира на моно режим и поддържа
  *				анимационен цикъл с animate() -- проверява
@@ -38,7 +38,7 @@ function vaxInit()
 	stats = new Stats();
 	document.body.appendChild( stats.dom );
 
-	if( Physijs )
+	if( typeof Physijs !== 'undefined' )
 		scene = new Physijs.Scene();
 	else
 		scene = new THREE.Scene();
