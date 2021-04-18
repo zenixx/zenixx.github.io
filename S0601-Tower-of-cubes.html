@@ -62,35 +62,14 @@
 			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 ),
 				material = Physijs.createMaterial( new THREE.MeshPhongMaterial({color:'hotpink'}), 1, 0 );
 				
-			var cubes = 1;
-			var cube = undefined;
-			
-			// пускане на ново кубче
-			function newCube( )
-			{
-				if( cubes>10 ) return;
-				
-				cubes++;
 
-				var height = 100;
+			cube = new Physijs.BoxMesh( geometry, material );
+				cube.position.set( THREE.Math.randFloat(-5,5), 100, THREE.Math.randFloat(-5,5) );
+				cube.receiveShadow = true;
+				cube.castShadow = true;
+			scene.add( cube );
 				
-				if( cube )
-				{
-					height = cube.position.y + 50;
-					cube.removeEventListener( 'collision', newCube );
-				}
-				
-				cube = new Physijs.BoxMesh( geometry, material );
-					cube.position.set( THREE.Math.randFloat(-5,5), height, THREE.Math.randFloat(-5,5) );
-					cube.receiveShadow = true;
-					cube.castShadow = true;
-				scene.add( cube );
-				
-				cube.addEventListener( 'collision', newCube );
-			}
-						
-			newCube();
-			
+
 			function animate()
 			{
 				scene.simulate( 1/10 );
