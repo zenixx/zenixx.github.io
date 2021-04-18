@@ -56,7 +56,7 @@
 			var ground1 = new Physijs.BoxMesh( geometry, material, 0 );
 				ground1.position.set( 0, 0, 0 );
 				ground1.receiveShadow = true;
-				ground1.rotation.y = 50;
+				ground1.rotation.set (40, 40, 40);
 			scene.add(ground1);
 			// кубчета
 			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 ),
@@ -67,7 +67,7 @@
 				cube.position.set( THREE.Math.randFloat(-5,5), 100, THREE.Math.randFloat(-5,5) );
 				cube.receiveShadow = true;
 				cube.castShadow = true;
-				cube.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) ;
+				cube.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
 			scene.add( cube );
 				
 
