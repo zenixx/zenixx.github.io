@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>S0610: Стрелба с чайници</title>
+		<meta charset="utf-8">
+		
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		
+		<script src="three.min.js"></script>
+		<script src="TeapotBufferGeometry.js"></script>
+		<script src="stats.min.js"></script>
+		<script src="physi.js"></script>
+		<script src="WebGL.js"></script>
+		<script src="vax.js"></script>
+		<script src="scene.js"></script>
+	</head>
+	
+	<body>
+		<script>
+			sceneInit();
+			camera.position.set( 0, 30, 170 );
+			camera.lookAt( new THREE.Vector3(0,30,0) );
+
+			// земя
+			ground = new THREE.Mesh(
+				new THREE.BoxBufferGeometry(200,4,200),
+				new THREE.MeshPhongMaterial({color:'white'})
+			);
+			ground.position.set( 0, -2, 0 );
+			ground.receiveShadow = true;
+			
+			scene.add( ground );
+
+			
+			// стена от кубчета
+			var geometry = new THREE.BoxBufferGeometry(20,20,20),
+				material = new THREE.MeshPhongMaterial({color:'white'});
+				
+			for( var x = -80; x<=80; x+=20 )
+			for( var y = 10; y<=120; y+=20 )
+			{
+				var box = new THREE.Mesh( geometry, material );
+				box.position.set( x, y, 0 );
+				box.receiveShadow = true;
+				box.castShadow = true;
+				scene.add( box );
+				
+				box.scale.set( 0.9, 0.9, 0.9 );
+			}
+			
+
+			function animate()
+			{
+			}
+		</script>
+	</body>
+</html>
+
+
