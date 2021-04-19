@@ -74,11 +74,6 @@
 				ground5.rotation.set (0, 0, Math.PI/2);
 			scene.add(ground5);
 			
-			var ground6 = new Physijs.BoxMesh( geometry, material, 0 );
-				ground6.position.set( 0, 36, -50 );
-				ground6.receiveShadow = true;
-				ground6.rotation.set (Math.PI/2, Math.PI/2, 0);
-			scene.add(groud6);
 			// кубчета
 			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 );
 			var loader = new THREE.TextureLoader();
