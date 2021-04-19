@@ -47,20 +47,20 @@
 				
 			var geometry = new THREE.BoxBufferGeometry( 100, 4, 100 ),
 				material = Physijs.createMaterial( new THREE.MeshPhongMaterial({color:'lightgreen'}), 1, 0 );
-			var ground = new Physijs.BoxMesh( geometry, material, 0 );
-				ground.position.set( 0, -10, 0 );
-				ground.receiveShadow = true;
-			scene.add( ground );
 			var ground1 = new Physijs.BoxMesh( geometry, material, 0 );
-				ground1.position.set( 56, 36, 0 );
+				ground1.position.set( 0, -10, 0 );
 				ground1.receiveShadow = true;
-				ground1.rotation.set (0, 0, Math.PI/2);
-			scene.add(ground1);
+			scene.add( ground1 );
 			var ground2 = new Physijs.BoxMesh( geometry, material, 0 );
-				ground2.position.set( 0, 36, -50 );
+				ground2.position.set( 56, 36, 0 );
 				ground2.receiveShadow = true;
-				ground2.rotation.set (Math.PI/2, Math.PI/2, 0);
+				ground2.rotation.set (0, 0, Math.PI/2);
 			scene.add(ground2);
+			var ground3 = new Physijs.BoxMesh( geometry, material, 0 );
+				ground3.position.set( 0, 36, -50 );
+				ground3.receiveShadow = true;
+				ground3.rotation.set (Math.PI/2, Math.PI/2, 0);
+			scene.add(ground3);
 			
 			var ground4 = new Physijs.BoxMesh( geometry, material, 0 );
 				ground4.position.set( 0, 36, 50 );
@@ -68,11 +68,17 @@
 				ground4.rotation.set (Math.PI/2, Math.PI/2, 0);
 			scene.add(ground4);
 			
-			var ground3 = new Physijs.BoxMesh( geometry, material, 0 );
-				ground3.position.set( -56, 36, 0 );
-				ground3.receiveShadow = true;
-				ground3.rotation.set (0, 0, Math.PI/2);
-			scene.add(ground3);
+			var ground5 = new Physijs.BoxMesh( geometry, material, 0 );
+				ground5.position.set( -56, 36, 0 );
+				ground5.receiveShadow = true;
+				ground5.rotation.set (0, 0, Math.PI/2);
+			scene.add(ground5);
+			
+			var ground6 = new Physijs.BoxMesh( geometry, material, 0 );
+				ground6.position.set( 0, 36, -50 );
+				ground6.receiveShadow = true;
+				ground6.rotation.set (Math.PI/2, Math.PI/2, 0);
+			scene.add(groud6);
 			// кубчета
 			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 );
 			var loader = new THREE.TextureLoader();
@@ -94,7 +100,7 @@
 				cube.position.set( THREE.Math.randFloat(-5,5), 100, THREE.Math.randFloat(-5,5) );
 				cube.receiveShadow = true;
 				cube.castShadow = true;
-				cube.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
+				cube.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-100,100) );
 			scene.add( cube );
 			
 			cube1 = new Physijs.BoxMesh( geometry, textureAll );
