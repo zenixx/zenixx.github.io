@@ -88,7 +88,7 @@
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture6}), 1, 0);*/
 				var material = Physijs.createMaterial( new THREE.MeshPhongMaterial({map: texture}), 1, 0 );		
 
-			cube = new Physijs.BoxMesh( geometry,  );
+			cube = new Physijs.BoxMesh( geometry, material );
 				cube.position.set( THREE.Math.randFloat(-5,5), 100, THREE.Math.randFloat(-5,5) );
 				cube.receiveShadow = true;
 				cube.castShadow = true;
