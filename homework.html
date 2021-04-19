@@ -29,7 +29,6 @@
 			control.dampingFactor = 0.1;
 			control.enablePan = false;
 
-			// светлина и сенки
 			renderer.shadowMap.enabled = true;
 			light.shadow.mapSize = new THREE.Vector2( 1024*2, 1024*2 );
 			light.position.set(-150,300,-50);
@@ -46,7 +45,6 @@
 			camera.lookAt(new THREE.Vector3(0,80,0));
 			
 				
-			// земя
 			var geometry = new THREE.BoxBufferGeometry( 100, 4, 100 ),
 				material = Physijs.createMaterial( new THREE.MeshPhongMaterial({color:'lightgreen'}), 1, 0 );
 			var ground = new Physijs.BoxMesh( geometry, material, 0 );
@@ -100,7 +98,6 @@
 				cube1.castShadow = true;
 				cube1.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
 			scene.add( cube1 );
-			var radius = 10;
 				
 
 			function animate()
