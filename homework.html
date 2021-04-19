@@ -70,14 +70,14 @@
 				ground3.rotation.set (0, 0, Math.PI/2);
 			scene.add(ground3);
 			// кубчета
-			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 ),
-				textureAll = [],
-			    	texture1 = new THREE.TextureLoader().load("images/dice side1.png"),
-			    	texture2 = new THREE.TextureLoader().load("images/dice side2.png"),
-			    	texture3 = new THREE.TextureLoader().load("images/dice side3.png"),
-			    	texture4 = new THREE.TextureLoader().load("images/dice side4.png"),
-			    	texture5 = new THREE.TextureLoader().load("images/dice side5.png"),
-			    	texture6 = new THREE.TextureLoader().load("images/dice side6.png").
+			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 );
+			var textureAll = [];
+			var texture1 = new THREE.TextureLoader().load("images/dice side1.png");
+			var texture2 = new THREE.TextureLoader().load("images/dice side2.png");
+			var texture3 = new THREE.TextureLoader().load("images/dice side3.png");
+			var texture4 = new THREE.TextureLoader().load("images/dice side4.png");
+			var texture5 = new THREE.TextureLoader().load("images/dice side5.png");
+			var texture6 = new THREE.TextureLoader().load("images/dice side6.png").
 			    	textureAll.push(new THREE.MeshPhongMaterial({map: texture1}), 1, 0).
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture2}), 1, 0).
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture3}), 1, 0).
