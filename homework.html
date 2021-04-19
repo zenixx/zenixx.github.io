@@ -71,17 +71,9 @@
 			scene.add(ground3);
 			// кубчета
 			var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 );
-			var loader = new THREE.TextureLoader();
-
-// load a resource
-loader.load(
-    // resource URL
-    'images/dice side1.png',
-    // Function when resource is loaded
-    function ( texture ) {
-        // do something with the texture
-
-			/*var textureAll = [];
+			var texture = new THREE.TextureLoader().load("images/dice side1.png");
+			/*var loader = new THREE.TextureLoader();
+			var textureAll = [];
 			var texture1 = new THREE.TextureLoader().load("images/dice side1.png");
 			var texture2 = new THREE.TextureLoader().load("images/dice side2.png");
 			var texture3 = new THREE.TextureLoader().load("images/dice side3.png");
@@ -94,10 +86,7 @@ loader.load(
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture4}), 1, 0);
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture5}), 1, 0);
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture6}), 1, 0);*/
-				material = Physijs.createMaterial( new THREE.MeshPhongMaterial({map: texture}), 1, 0 );
-    };
-	);
-				
+				var material = Physijs.createMaterial( new THREE.MeshPhongMaterial({map: texture}), 1, 0 );		
 
 			cube = new Physijs.BoxMesh( geometry,  );
 				cube.position.set( THREE.Math.randFloat(-5,5), 100, THREE.Math.randFloat(-5,5) );
