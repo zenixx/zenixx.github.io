@@ -57,13 +57,13 @@
 				ground1.rotation.set (0, 0, Math.PI/2);
 			scene.add(ground1);
 			var ground2 = new Physijs.BoxMesh( geometry, material, 0 );
-				ground2.position.set( 56, 36, 0 );
+				ground2.position.set( 56, 36, -20 );
 				ground2.receiveShadow = true;
 				ground2.rotation.set (Math.PI/2, Math.PI/2, 0);
 			scene.add(ground2);
 			
 			var ground3 = new Physijs.BoxMesh( geometry, material, 0 );
-				ground3.position.set( -56, 36, -20 );
+				ground3.position.set( 56, 36, 0 );
 				ground3.receiveShadow = true;
 				ground3.rotation.set (0, 0, Math.PI/2);
 			scene.add(ground3);
