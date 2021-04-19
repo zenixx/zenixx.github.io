@@ -57,7 +57,13 @@
 				ground1.rotation.set (0, 0, Math.PI/2);
 			scene.add(ground1);
 			var ground2 = new Physijs.BoxMesh( geometry, material, 0 );
-				ground2.position.set( 10, 36, -50 );
+				ground2.position.set( 0, 36, -50 );
+				ground2.receiveShadow = true;
+				ground2.rotation.set (Math.PI/2, Math.PI/2, 0);
+			scene.add(ground2);
+			
+			var ground2 = new Physijs.BoxMesh( geometry, material, 0 );
+				ground2.position.set( 0, -36, -50 );
 				ground2.receiveShadow = true;
 				ground2.rotation.set (Math.PI/2, Math.PI/2, 0);
 			scene.add(ground2);
@@ -72,18 +78,17 @@
 			var loader = new THREE.TextureLoader();
 			var textureAll = [];
 			var texture1 = new THREE.TextureLoader().load("images/dice side1.jpg");
-			var texture2 = new THREE.TextureLoader().load("images/dice side2.png");
-			var texture3 = new THREE.TextureLoader().load("images/dice side3.png");
-			var texture4 = new THREE.TextureLoader().load("images/dice side4.png");
-			var texture5 = new THREE.TextureLoader().load("images/dice side5.png");
-			var texture6 = new THREE.TextureLoader().load("images/six-sides-dice-27836758.jpg");
+			var texture2 = new THREE.TextureLoader().load("images/dice side2.jpg");
+			var texture3 = new THREE.TextureLoader().load("images/dice side3.jpg");
+			var texture4 = new THREE.TextureLoader().load("images/dice side4.jpg");
+			var texture5 = new THREE.TextureLoader().load("images/dice side5.jpg");
+			var texture6 = new THREE.TextureLoader().load("images/dice side6.jpg");
 			    	textureAll.push(new THREE.MeshPhongMaterial({map: texture1}));
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture2}));
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture3}));
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture4}));
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture5}));
 				textureAll.push(new THREE.MeshPhongMaterial({map: texture6}));
-				/*var material = Physijs.createMaterial( new THREE.MeshPhongMaterial({map: texture}), 1, 0 );*/
 
 			var cube = new Physijs.BoxMesh( geometry, textureAll );
 				cube.position.set( THREE.Math.randFloat(-5,5), 100, THREE.Math.randFloat(-5,5) );
@@ -92,13 +97,12 @@
 				cube.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
 			scene.add( cube );
 			
-			cube1 = new Physijs.BoxMesh( geometry, material );
+			cube1 = new Physijs.BoxMesh( geometry, textureAll );
 				cube1.position.set( THREE.Math.randFloat(-20,20), 131, THREE.Math.randFloat(-25,25) );
 				cube1.receiveShadow = true;
 				cube1.castShadow = true;
 				cube1.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
 			scene.add( cube1 )
-			var grade = 10;
 				
 
 			function animate()
