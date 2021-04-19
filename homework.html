@@ -100,6 +100,30 @@
 				cube1.castShadow = true;
 				cube1.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
 			scene.add( cube1 );
+			
+			var geometry = new THREE.BoxGeometry(width, height, 50, 100, 50, 10);
+
+var v1 = new THREE.Vector3();
+var w1 = (width - (radius * 2)) * 0.5,
+  h1 = (height - (radius * 2)) * 0.5;
+var vTemp = new THREE.Vector3(),
+  vSign = new THREE.Vector3(),
+  vRad = new THREE.Vector3();
+geometry.vertices.forEach(v => {
+  v1.set(w1, h1, v.z);
+  vTemp.multiplyVectors(v1, vSign.set(Math.sign(v.x), Math.sign(v.y), 1));
+  vRad.subVectors(v, vTemp);
+  if (Math.abs(v.x) > v1.x && Math.abs(v.y) > v1.y && vRad.length() > radius) {
+    vRad.setLength(radius).add(vTemp);
+    v.copy(vRad);
+  }
+});
+
+var mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
+  color: "aqua",
+  wireframe: true
+}));
+scene.add(mesh);
 				
 
 			function animate()
