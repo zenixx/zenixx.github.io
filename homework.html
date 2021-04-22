@@ -105,8 +105,7 @@
 				cube1.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
 			scene.add( cube1 )
 			
-			cube1.scale.set( 1.2, 1.2, 1.2 );
-			cube1.setAngularVelocity( new THREE.Vector3( Math.random(), Math.random(), Math.random() ) );
+			cube1.setAngularVelocity( new THREE.Vector3( Math.random(-100,100), Math.random(), Math.random() ) );
 			
 
 			function animate()
