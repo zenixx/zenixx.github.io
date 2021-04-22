@@ -41,7 +41,7 @@
 
 			scene.add( new THREE.AmbientLight( 'yellow', 0.2 ) );
 			
-			camera.position.set(0,500,240);
+			camera.position.set(0,500,100);
 			camera.lookAt(new THREE.Vector3(0,-20,0));
 			
 				
@@ -98,7 +98,7 @@
 				cube.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-100,100) );
 			scene.add( cube );
 			
-			cube.setAngularVelocity( new THREE.Vector3( Math.random(-100,100), Math.random(), Math.random() ) );
+			cube.setAngularVelocity( new THREE.Vector3( Math.random(), Math.random(), Math.random() ) );
 			
 			cube1 = new Physijs.BoxMesh( geometry, textureAll );
 				cube1.position.set( THREE.Math.randFloat(-20,20), 131, THREE.Math.randFloat(-25,25) );
@@ -107,7 +107,7 @@
 				cube1.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-20,20) );
 			scene.add( cube1 )
 			
-			cube1.setAngularVelocity( new THREE.Vector3( Math.random(-100,100), Math.random(-100,100), Math.random() ) );
+			cube1.setAngularVelocity( new THREE.Vector3( Math.random(), Math.random(), Math.random() ) );
 			
 
 			function animate()
