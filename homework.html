@@ -98,6 +98,8 @@
 				cube.rotation.set( THREE.Math.randFloat(-100,100), THREE.Math.randFloat(-70,70), THREE.Math.randFloat(-100,100) );
 			scene.add( cube );
 			
+			cube.setAngularVelocity( new THREE.Vector3( Math.random(-100,100), Math.random(), Math.random() ) );
+			
 			cube1 = new Physijs.BoxMesh( geometry, textureAll );
 				cube1.position.set( THREE.Math.randFloat(-20,20), 131, THREE.Math.randFloat(-25,25) );
 				cube1.receiveShadow = true;
