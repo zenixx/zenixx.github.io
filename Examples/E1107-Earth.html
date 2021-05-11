@@ -9,12 +9,23 @@
 		
 		<script src="three.min.js"></script>
 		<script src="WebGL.js"></script>
+		<script src="OrbitControls.js"></script>
 		<script src="vax.js"></script>
 	</head>
 	
 	<body>
 		<script>
 			vaxInit();
+			
+			var control = new THREE.OrbitControls( camera, renderer.domElement );
+			control.minDistance = 50;
+			control.maxDistance = 300;
+			control.minPolarAngle = 0.1;
+			control.maxPolarAngle = 3.0; 
+			control.rotateSpeed = 0.3;
+			control.enableDamping = true;
+			control.dampingFactor = 0.1;
+			control.enablePan = false;
 			
 			var texture = new THREE.TextureLoader().load( 'earth.jpg' ),
 				geometry = new THREE.SphereBufferGeometry( 40, 48, 32 ),
