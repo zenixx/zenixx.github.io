@@ -67,8 +67,8 @@
 
 			function animate()
 			{
-				camera.position.x = THREE.Math.clamp( ball.position.x+3*slopeY * dT, -20, 20 );
-				camera.position.z = THREE.Math.clamp( ball.position.z+3*slopeX * dT, -45, 45 );
+				camera.position.x = THREE.Math.clamp( camera.position.x+3*slopeY * dT, -20, 20 );
+				camera.position.z = THREE.Math.clamp( camera.position.z+3*slopeX * dT, -45, 45 );
 				controls.update();
 			}
 			
