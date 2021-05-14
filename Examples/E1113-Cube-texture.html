@@ -35,8 +35,7 @@
 				'cube/posz.jpg', 'cube/negz.jpg' 
 ] );
 				
-						var geometry = new THREE.ConeGeometry( 1, 2, 64 );
-
+			var geometry = new THREE.ConeGeometry( 1, 2, 64 );
 			var n = 100;
 			var objects = [];
 			for( var i=0; i<n; i++)
@@ -51,24 +50,10 @@
 				scene.add( mesh );
 			}
 			
-			var slopeX = 0,
-				slopeY = 0;
-				
-				
-			// слушаме за събитието на ориентацията на устройство
-			window.addEventListener( "deviceorientation", deviceOrientation, true);
-
-			// функция, която търкаля топката според наклона на устройството
-			function deviceOrientation( event )
-			{
-				slopeX = event.beta;
-				slopeY = event.gamma;
-			}
 
 			function animate()
 			{
-				camera.position.x = THREE.Math.clamp( camera.position.x+3*slopeY * dT, -20, 20 );
-				camera.position.z = THREE.Math.clamp( camera.position.z+3*slopeX * dT, -45, 45 );
+
 				controls.update();
 			}
 			
