@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>S0910: Събиране на данни</title>
+		<meta charset="utf-8">
+		
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	</head>
+	
+	<body>
+		<textarea id="data" rows="30" style="width:90%; height:90%;">#</textarea>
+		
+		<script>
+			window.addEventListener( "devicemotion", deviceMotion, true);
+
+			var dataElem = document.getElementById('data'),
+				n = 0;
+				
+			function deviceMotion( event )
+			{
+				n++;
+				if( 50<=n && n<1050 )
+				{
+					dataElem.style.backgroundColor = 'yellow';
+					dataElem.value += ' '+(event.acceleration.y || 0).toFixed(1);
+				}
+				
+				if( n==1050 )
+					dataElem.style.backgroundColor = 'white';
+			}
+		</script>
+	</body>
+</html>
+
+
