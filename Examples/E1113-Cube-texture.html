@@ -50,6 +50,20 @@
 				objects.push( mesh );
 				scene.add( mesh );
 			}
+			
+			var slopeX = 0,
+				slopeY = 0;
+				
+				
+			// слушаме за събитието на ориентацията на устройство
+			window.addEventListener( "deviceorientation", deviceOrientation, true);
+
+			// функция, която търкаля топката според наклона на устройството
+			function deviceOrientation( event )
+			{
+				slopeX = event.beta;
+				slopeY = event.gamma;
+			}
 
 			function animate()
 			{
