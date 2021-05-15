@@ -69,7 +69,7 @@
 
 				controls.update();
 				camera.position.x = THREE.Math.clamp( camera.position.x+3*slopeX * dT, -180, 180 );
-				camera.position.y = THREE.Math.clamp( camera.position.z+Math.Pi*slopeY * dT, Math.PI/2, 0 );
+				camera.position.y = THREE.Math.clamp( camera.position.z+3*slopeY * dT, Math.PI/2, 0 );
 				camera.position.z = THREE.Math.clamp( camera.position.z+3*slopeZ * dT, -45, 45 );
 				
 				var s = new THREE.Spherical();
