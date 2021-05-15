@@ -68,9 +68,9 @@
 			{
 
 				controls.update();
-				camera.position.x = THREE.Math.clamp( camera.position.x+3*slopeX * dT, -180, 180 );
-				camera.position.y = THREE.Math.clamp( camera.position.z+3*slopeY * dT, Math.PI/2, 0 );
-				camera.position.z = THREE.Math.clamp( camera.position.z+3*slopeZ * dT, -45, 45 );
+				camera.position.x = THREE.Math.clamp( camera.position.x+3*slopeX, -180, 180 );
+				camera.position.y = THREE.Math.clamp( camera.position.z+3*slopeY, Math.PI/2, 0 );
+				camera.position.z = THREE.Math.clamp( camera.position.z+3*slopeZ, -45, 45 );
 			}
 			
 		</script>
