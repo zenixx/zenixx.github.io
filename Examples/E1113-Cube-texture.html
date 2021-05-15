@@ -50,6 +50,14 @@
 				scene.add( mesh );
 			}
 			
+			var slopeX = 0,
+				slopeY = 0;
+			
+			function deviceOrientation( event )
+			{
+				slopeX = event.beta;
+				slopeY = event.gamma;
+			}
 
 			window.addEventListener( "deviceorientation", deviceOrientation, true);
 			
