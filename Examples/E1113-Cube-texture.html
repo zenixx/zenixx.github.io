@@ -50,6 +50,19 @@
 				scene.add( mesh );
 			}
 			
+			var s = new THREE.Spherical();
+				for (var i=0; i<n; i++)
+				{
+					var q = objects[i].offset;
+					s.set( 1, -i+q+100, i*i-q ); 
+					
+					var pos = new THREE.Vector3().setFromSpherical( s );
+					
+					var m = 40/Math.max( Math.abs(pos.x), Math.abs(pos.y), Math.abs(pos.z) );
+					
+					pos = pos.multiplyScalar( m );
+					objects[i].position.copy( pos );
+				}
 			var slopeX = 0,
 			    	slopeZ = 0,
 				slopeY = 0;
@@ -72,19 +85,6 @@
 				camera.position.y = THREE.Math.clamp( camera.position.z+3*slopeY * dT, -180, 180 );
 				camera.position.z = THREE.Math.clamp( camera.position.z+3*slopeZ * dT, -180, 180 );
 				
-				var s = new THREE.Spherical();
-				for (var i=0; i<n; i++)
-				{
-					var q = objects[i].offset;
-					s.set( 1, -i+q+100, i*i-q ); 
-					
-					var pos = new THREE.Vector3().setFromSpherical( s );
-					
-					var m = 40/Math.max( Math.abs(pos.x), Math.abs(pos.y), Math.abs(pos.z) );
-					
-					pos = pos.multiplyScalar( m );
-					objects[i].position.copy( pos );
-				}
 			}
 			
 		</script>
