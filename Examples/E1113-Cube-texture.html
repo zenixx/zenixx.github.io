@@ -54,11 +54,11 @@
 				for (var i=0; i<n; i++)
 				{
 					var q = objects[i].offset;
-					s.set( 1, -i+q+100, i*i-q ); 
+					s.set( 1, -i+q+5, i*i-q ); 
 					
 					var pos = new THREE.Vector3().setFromSpherical( s );
 					
-					var m = 40/Math.max( Math.abs(pos.x), Math.abs(pos.y), Math.abs(pos.z) );
+					var m = 10/Math.max( Math.abs(pos.x), Math.abs(pos.y), Math.abs(pos.z) );
 					
 					pos = pos.multiplyScalar( m );
 					objects[i].position.copy( pos );
