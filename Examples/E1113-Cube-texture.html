@@ -18,7 +18,6 @@
 			vaxInit();
 			
 			camera.fov = 100;
-			onWindowResize();
 	
 			var controls = new THREE.OrbitControls( camera, renderer.domElement );
 				controls.enableZoom = false;
@@ -52,7 +51,6 @@
 			
 			window.addEventListener( "deviceorientation", deviceOrientation, true);
 
-			// функция, която търкаля топката според наклона на устройството
 			function deviceOrientation( event )
 			{
 				var alpha = THREE.Math.degToRad( event.alpha ),
