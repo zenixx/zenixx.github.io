@@ -17,9 +17,7 @@
 		<script>
 			vaxInit();
 			
-			//camera.fov = 100;
-			camera.position.set( 0, 0, 20 );
-			camera.lookAt( new THREE.Vector3( 0, 0, 0 ) );
+			camera.fov = 50;
 	
 			var controls = new THREE.OrbitControls( camera, renderer.domElement );
 				controls.enableZoom = false;
