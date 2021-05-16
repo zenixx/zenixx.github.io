@@ -31,8 +31,23 @@
 			scene.background = new THREE.CubeTextureLoader().load( [
 				'textures/posx.jpg', 'textures/negx.jpg',
 				'textures/posy.jpg', 'textures/negy.jpg',
-				'textures/posz.jpg', 'textures/negz.jpg' 
-] );
+				'textures/posz.jpg', 'textures/negz.jpg' ] );
+			
+			var geometry = new THREE.IcosahedronBufferGeometry( 40, 3 );
+			var n = 150;
+			var objects = [];
+			for( var i=0; i<n; i++)
+			{
+				var material = new THREE.MeshLambertMaterial( {
+					envMap: scene.backgroud,
+					reflectivity: 1)} ),
+					mesh = new THREE.Mesh( geometry, material );
+					
+				mesh.scale.set( 50, 150, 50 );
+				mesh.position.set( THREE.Math.randFloatSpread(6000), THREE.Math.randFloat(-800,800),THREE.Math.randFloatSpread(6000) );
+				
+				objects.push( mesh );
+				scene.add( mesh );
 				
 
 			function animate()
