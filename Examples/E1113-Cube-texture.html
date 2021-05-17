@@ -17,9 +17,7 @@
 		<script>
 			vaxInit();
 			
-			//camera.fov = 100;
-			camera.position.set( 0, 0, 20 );
-			camera.lookAt( new THREE.Vector3( 0, 0, 0 ) );
+			camera.fov = 50;
 	
 			var controls = new THREE.OrbitControls( camera, renderer.domElement );
 				controls.enableZoom = false;
@@ -51,33 +49,9 @@
 				scene.add( mesh );
 			}
 			
-			window.addEventListener( "deviceorientation", deviceOrientation, true);
-
-			function deviceOrientation( event )
-			{
-				var alpha = THREE.Math.degToRad( event.alpha ),
-					beta = THREE.Math.degToRad( event.beta ),
-					gamma = THREE.Math.degToRad( event.gamma );
-					
-				camera.rotation.set( beta, alpha, -gamma, 'YZX' );
-			}
-			
-			window.addEventListener( "deviceorientation", deviceOrientation, true);
-
-			// функция, която търкаля топката според наклона на устройството
-			function deviceOrientation( event )
-			{
-				var alpha = THREE.Math.degToRad( event.alpha ),
-					beta = THREE.Math.degToRad( event.beta ),
-					gamma = THREE.Math.degToRad( event.gamma );
-					
-				camera.rotation.set( alpha, beta, -gamma, 'XYZ' );
-			}
 
 			function animate()
 			{
-				var s = new THREE.Spherical( 60, 40, 40 );
-				objects.position.setFromSpherical( s );
 				controls.update();
 				
 				
