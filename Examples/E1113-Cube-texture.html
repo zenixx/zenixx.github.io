@@ -71,7 +71,7 @@
 					beta = THREE.Math.degToRad( event.beta ),
 					gamma = THREE.Math.degToRad( event.gamma );
 					
-				camera.rotation.set( beta, alpha, -gamma, 'YZX' );
+				camera.rotation.set( alpha, beta, -gamma, 'XYZ' );
 			}
 
 			function animate()
