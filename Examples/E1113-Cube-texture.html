@@ -61,6 +61,18 @@
 					
 				camera.rotation.set( beta, alpha, -gamma, 'YZX' );
 			}
+			
+			window.addEventListener( "deviceorientation", deviceOrientation, true);
+
+			// функция, която търкаля топката според наклона на устройството
+			function deviceOrientation( event )
+			{
+				var alpha = THREE.Math.degToRad( event.alpha ),
+					beta = THREE.Math.degToRad( event.beta ),
+					gamma = THREE.Math.degToRad( event.gamma );
+					
+				camera.rotation.set( beta, alpha, -gamma, 'YZX' );
+			}
 
 			function animate()
 			{
